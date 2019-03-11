@@ -4,11 +4,12 @@
   "name": "AEM View as Published Shortcut",
   "short_name": "View as Published",
   "description": "This extension allows you to toggle between AEMs 'View as Published' and authoring view.",
-  "version": "0.0.3",
+  "version": "0.0.6",
 
   "browser_action": {
     "default_title": "AEM View as Published",
-    "default_icon": "images/icon38.png"
+    "default_icon": "images/icon38.png",
+    "default_popup": "html/popup.html"
   },
 
   "permissions": ["activeTab", "tabs"],
@@ -17,9 +18,13 @@
     "persistent": false,
     "scripts": ["background.js"]
   },
+  
   "content_scripts": [
     {
-      "matches": ["http://*/*", "https://*/*"],
+      "matches": [
+        "http://*.adobemsbasic.com/*",
+        "https://*.adobemsbasic.com/*"
+      ],
       "js": ["./js/content.js"],
       "run_at": "document_end"
     }
