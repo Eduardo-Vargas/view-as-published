@@ -30,8 +30,10 @@ jQuery.noConflict();
     $('#published_button').click(function(e) {
       chrome.tabs.getSelected(null, function(tab) {
           
-          var url = tab.url.split("/sites.html");
-          var finalURL = "https://www.ncr.com" + url[1];
+          var temp = tab.url.split("/content");
+          var url = temp[1].replace('?wcmmode=disabled', '');;
+          
+          var finalURL = "https://www.ncr.com/content" + url;
           window.open(finalURL, '_blank');
       });
     });
