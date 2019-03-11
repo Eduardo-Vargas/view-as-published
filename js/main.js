@@ -2,7 +2,7 @@ jQuery.noConflict();
 (function($) {
   $(function() {
     chrome.tabs.getSelected(null, function(tab) {
-      if (tab.url.includes('www.ncr.com')) {
+      if (tab.url.includes('www.ncr.com') || !tab.url.includes('adobemsbasic.com')) {
         
         var error = document.getElementById('error');
         var viewAs = document.getElementById('viewAs_button');
